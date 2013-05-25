@@ -56,11 +56,11 @@ RxSettings::RxSettings ()
     label->setColour (TextEditor::textColourId, Colours::black);
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (slider = new Slider ("new slider"));
-    slider->setRange (500, 1000, 50);
-    slider->setSliderStyle (Slider::LinearHorizontal);
-    slider->setTextBoxStyle (Slider::TextBoxLeft, false, 80, 20);
-    slider->addListener (this);
+    addAndMakeVisible (sliderCwPitch = new Slider ("sliderCwPitch"));
+    sliderCwPitch->setRange (500, 1000, 50);
+    sliderCwPitch->setSliderStyle (Slider::LinearHorizontal);
+    sliderCwPitch->setTextBoxStyle (Slider::TextBoxLeft, false, 80, 20);
+    sliderCwPitch->addListener (this);
 
 
     //[UserPreSize]
@@ -82,7 +82,7 @@ RxSettings::~RxSettings()
     RxBalance = nullptr;
     labelRxBalance = nullptr;
     label = nullptr;
-    slider = nullptr;
+    sliderCwPitch = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -107,7 +107,7 @@ void RxSettings::resized()
     RxBalance->setBounds (128, 72, proportionOfWidth (0.7387f), 24);
     labelRxBalance->setBounds (16, 72, 96, 24);
     label->setBounds (16, 120, 104, 24);
-    slider->setBounds (128, 120, proportionOfWidth (0.7387f), 24);
+    sliderCwPitch->setBounds (128, 120, proportionOfWidth (0.7387f), 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -138,11 +138,11 @@ void RxSettings::sliderValueChanged (Slider* sliderThatWasMoved)
         //[UserSliderCode_RxBalance] -- add your slider handling code here..
         //[/UserSliderCode_RxBalance]
     }
-    else if (sliderThatWasMoved == slider)
+    else if (sliderThatWasMoved == sliderCwPitch)
     {
-        //[UserSliderCode_slider] -- add your slider handling code here..
-		CoreTimer::setCWfreq((float)slider->getValue());
-        //[/UserSliderCode_slider]
+        //[UserSliderCode_sliderCwPitch] -- add your slider handling code here..
+		CoreTimer::setCWfreq((float)sliderCwPitch->getValue());
+		//[/UserSliderCode_sliderCwPitch]
     }
 
     //[UsersliderValueChanged_Post]
@@ -186,10 +186,10 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="CW pitch" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
-  <SLIDER name="new slider" id="57bec0a0418e7eb6" memberName="slider" virtualName=""
-          explicitFocusOrder="0" pos="128 120 73.868% 24" min="500" max="1000"
-          int="50" style="LinearHorizontal" textBoxPos="TextBoxLeft" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="sliderCwPitch" id="57bec0a0418e7eb6" memberName="sliderCwPitch"
+          virtualName="" explicitFocusOrder="0" pos="128 120 73.868% 24"
+          min="500" max="1000" int="50" style="LinearHorizontal" textBoxPos="TextBoxLeft"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

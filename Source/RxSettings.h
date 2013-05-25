@@ -63,7 +63,7 @@ private:
     ScopedPointer<Slider> RxBalance;
     ScopedPointer<Label> labelRxBalance;
     ScopedPointer<Label> label;
-    ScopedPointer<Slider> sliderCWpitch;
+    ScopedPointer<Slider> sliderCwPitch;
 
 
     //==============================================================================

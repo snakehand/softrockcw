@@ -220,10 +220,11 @@ void Receiver::setupPhasor()
 	mPhasorPos = 0.0;
     mPhasorPosDelta = ((mLow+mHigh)*3.1415926535) / (double)mRateIn;
 	mPhasorOutPos = 0.0;
+	double off = mOffset / (double)mRateIn;
 	if (mLow<mHigh) {
-	    mPhasorOutPosDelta = (width+mOffset)*6.283185307179586*mDecimate;
+	    mPhasorOutPosDelta = (width+off)*6.283185307179586*mDecimate;
 	} else {
-	    mPhasorOutPosDelta = (-width+mOffset)*6.283185307179586*mDecimate;
+	    mPhasorOutPosDelta = (-width+off)*6.283185307179586*mDecimate;
 	}
 
 	if (mPhasorPosDelta<0.0) {
