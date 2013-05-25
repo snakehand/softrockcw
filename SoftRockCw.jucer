@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="HrlLOX" name="SoftRockCw" projectType="guiapp" version="1.0.0"
+              bundleIdentifier="com.ham.la9osa.softrockcw" jucerVersion="3.1.0"
+              companyName="LA9OSA">
+  <EXPORTFORMATS>
+    <VS2010 targetFolder="Builds/VisualStudio2010" libraryType="1" juceFolder="..\juce\modules">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="SoftRockCw" headerPath="..\..\ASIOSDK2.3\common"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="2" targetName="SoftRockCw"/>
+      </CONFIGURATIONS>
+    </VS2010>
+  </EXPORTFORMATS>
+  <MAINGROUP id="liZYYR" name="SoftRockCw">
+    <GROUP id="{32617FA5-7E60-B1F5-00EC-0D769F355578}" name="Source">
+      <FILE id="CSv92q" name="TxSettings.cpp" compile="1" resource="0" file="Source/TxSettings.cpp"/>
+      <FILE id="Kfi3Ja" name="TxSettings.h" compile="0" resource="0" file="Source/TxSettings.h"/>
+      <FILE id="rPgDRy" name="RxSettings.cpp" compile="1" resource="0" file="Source/RxSettings.cpp"/>
+      <FILE id="QNXtYS" name="RxSettings.h" compile="0" resource="0" file="Source/RxSettings.h"/>
+      <FILE id="EQsK7O" name="SpectrumScope.cpp" compile="1" resource="0"
+            file="Source/SpectrumScope.cpp"/>
+      <FILE id="PaZAmp" name="SpectrumScope.h" compile="0" resource="0" file="Source/SpectrumScope.h"/>
+      <FILE id="f0GItY" name="RadioPanel.cpp" compile="1" resource="0" file="Source/RadioPanel.cpp"/>
+      <FILE id="uP4OA5" name="RadioPanel.h" compile="0" resource="0" file="Source/RadioPanel.h"/>
+      <FILE id="JlEDsH" name="Waterfall.cpp" compile="1" resource="0" file="Source/Waterfall.cpp"/>
+      <FILE id="exyZ4g" name="Waterfall.h" compile="0" resource="0" file="Source/Waterfall.h"/>
+      <GROUP id="{D5061E45-4994-3A73-A507-60D01BCD1AB2}" name="kiss_fft130">
+        <FILE id="iqjDQL" name="_kiss_fft_guts.h" compile="0" resource="0"
+              file="Source/kiss_fft130/_kiss_fft_guts.h"/>
+        <FILE id="AhhCh7" name="kiss_fft.c" compile="1" resource="0" file="Source/kiss_fft130/kiss_fft.c"/>
+        <FILE id="diFp62" name="kiss_fft.h" compile="0" resource="0" file="Source/kiss_fft130/kiss_fft.h"/>
+      </GROUP>
+      <FILE id="kvM4bX" name="Receiver.cpp" compile="1" resource="0" file="Source/Receiver.cpp"/>
+      <FILE id="zsl300" name="Receiver.h" compile="0" resource="0" file="Source/Receiver.h"/>
+      <GROUP id="{65235D2F-17E0-7070-ADFD-47C9930A7ABB}" name="remez">
+        <FILE id="TiNFnO" name="remez.cpp" compile="1" resource="0" file="Source/remez/remez.cpp"/>
+        <FILE id="E4rCtN" name="remez.h" compile="0" resource="0" file="Source/remez/remez.h"/>
+      </GROUP>
+      <FILE id="p9tmpK" name="CwGen.cpp" compile="1" resource="0" file="Source/CwGen.cpp"/>
+      <FILE id="dXQIVL" name="CwGen.h" compile="0" resource="0" file="Source/CwGen.h"/>
+      <FILE id="KTcbaE" name="HardRock.cpp" compile="1" resource="0" file="Source/HardRock.cpp"/>
+      <FILE id="g8d6md" name="HardRock.h" compile="0" resource="0" file="Source/HardRock.h"/>
+      <FILE id="gWQOnm" name="SRDLL.h" compile="0" resource="0" file="Source/SRDLL.h"/>
+      <FILE id="GrNyXG" name="AudioPath.cpp" compile="1" resource="0" file="Source/AudioPath.cpp"/>
+      <FILE id="rEGdRP" name="AudioPath.h" compile="0" resource="0" file="Source/AudioPath.h"/>
+      <FILE id="bAWGtm" name="MainTabs.cpp" compile="1" resource="0" file="Source/MainTabs.cpp"/>
+      <FILE id="kWjcba" name="MainTabs.h" compile="0" resource="0" file="Source/MainTabs.h"/>
+      <FILE id="QeBVbS" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_audio" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>
