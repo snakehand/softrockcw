@@ -1,0 +1,11 @@
+To build & run:
+
+1) Download Juce from http://www.juce.com/
+2) Build the Introjucer
+3) Open SoftRockCw.jucer with the Introjucer
+4) Save project and open (Visual Studio)
+5) Build
+6) Copy SRDLL.dll to your build output folder
+7) Run
+
+
