@@ -12,7 +12,7 @@
 #define __WATERFALL_H_BBB49867__
 
 #include "JuceHeader.h"
-#include "kiss_fft130\kiss_fft.h"
+#include "kiss_fft130/kiss_fft.h"
 
 class Waterfall  : public HighResolutionTimer {
 public:

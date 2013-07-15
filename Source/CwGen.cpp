@@ -10,7 +10,9 @@
 #include "CwGen.h"
 #include <math.h>
 
+#ifndef M_PI
 #define M_PI 3.14159265358979
+#endif
 
 static double blackman_harris(double x)
 {

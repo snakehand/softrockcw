@@ -11,7 +11,7 @@
 #include <math.h>
 #include <string.h>
 #include "Receiver.h"
-#include "remez\remez.h"
+#include "remez/remez.h"
 #include "SpectrumScope.h"
 
 static void wrap_remez(int m, float fc, float *taps)

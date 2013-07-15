@@ -19,6 +19,8 @@
 #ifndef SRDLL_H_INCLUDED
 #define SRDLL_H_INCLUDED
 
+#ifdef WIN32
+
 #include <Windows.h>
 
 #if defined SRDLL_INCLUDE		// No DLL, direct include the code
@@ -131,5 +133,5 @@ extern "C" {
 	extern	SRDLL_API	int			srUsbTimeout;
 };
 
-
+#endif
 #endif

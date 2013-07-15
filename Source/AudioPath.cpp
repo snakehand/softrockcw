@@ -23,7 +23,7 @@ volatile int gWritePos = 0;
 
 static float gAFbuffer[CIRCULAR_BUFFER_SIZE];
 volatile int gReadPosAF = 0;
-volatile int gWritePosAF = 0;
+volatile int gWritePosAF = CIRCULAR_BUFFER_SIZE/4;
 
 bool gSwapChannels = false;
 double gCWpitch1 = 0.08f;

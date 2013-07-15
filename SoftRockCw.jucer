@@ -12,6 +12,14 @@
                        isDebug="0" optimisation="2" targetName="SoftRockCw"/>
       </CONFIGURATIONS>
     </VS2010>
+    <XCODE_MAC targetFolder="Builds/MacOSX" juceFolder="../JUCE/modules">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="1" optimisation="1" targetName="SoftRockCw"/>
+        <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="0" optimisation="2" targetName="SoftRockCw"/>
+      </CONFIGURATIONS>
+    </XCODE_MAC>
   </EXPORTFORMATS>
   <MAINGROUP id="liZYYR" name="SoftRockCw">
     <GROUP id="{32617FA5-7E60-B1F5-00EC-0D769F355578}" name="Source">

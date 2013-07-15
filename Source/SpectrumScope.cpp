@@ -14,6 +14,17 @@
 
 SpectrumScope* SpectrumScope::mInstances[10] = {0,0,0,0,0,0,0,0,0,0};
 
+#define COL_LIST_SIZE_IN 4
+#define COL_LIST_SIZE_OUT 1024
+
+static unsigned spectrumRlist[COL_LIST_SIZE_IN] = {  0,   0, 255, 255};
+static unsigned spectrumGlist[COL_LIST_SIZE_IN] = {  0,   0, 255,   0};
+static unsigned spectrumBlist[COL_LIST_SIZE_IN] = {  0, 255,  0,   0};
+
+static unsigned spectrumRlistOut[COL_LIST_SIZE_OUT];
+static unsigned spectrumGlistOut[COL_LIST_SIZE_OUT];
+static unsigned spectrumBlistOut[COL_LIST_SIZE_OUT];
+
 SpectrumScope* SpectrumScope::GetInstance(int i)
 {
 	if ((i<0)||(i>9)) {
@@ -36,6 +47,19 @@ SpectrumScope::SpectrumScope() :
 	}
 	memset(mValues,0,sizeof(mValues));
 	mInstances[0] = this;
+
+	unsigned nper = COL_LIST_SIZE_OUT / COL_LIST_SIZE_IN;
+	for (int i=0; i<COL_LIST_SIZE_OUT; i++) {
+		float a = float(i % nper) / float(nper-1);
+		float ia = 1.0f - a;
+		unsigned idx = i / nper;
+		float r = ia * float(spectrumRlist[idx]) + a * float(spectrumRlist[idx+1]);
+		float g = ia * float(spectrumGlist[idx]) + a * float(spectrumGlist[idx+1]);
+		float b = ia * float(spectrumBlist[idx]) + a * float(spectrumBlist[idx+1]);
+		spectrumRlistOut[i] = int(r);
+		spectrumGlistOut[i] = int(g);
+		spectrumBlistOut[i] = int(b);
+	}
 }
 
 SpectrumScope::~SpectrumScope()
@@ -99,31 +123,15 @@ void SpectrumScope::update()
 		float d = 1024.0f/(float)w;
 		for (int i=0; i<w; i++) {
 			int p = ((int)x + 512)&0x3ff;
-			int v = 768 + (int)(60.0f*mValues[p]);
-			int r = 255;
-			int g = 0;
-			int b = 0;
-
-			if (v<768) {
-				r = 1024 - v;
-				if (r<0) {
-					r = 0;
-				}
-				g = 512 - v;
-				if (g<0) {
-					g = -g;
-				}
-				g = 256 - g;
-				if (g<0) {
-					g = 0;
-				}
-				if (v<512) {
-					b = 255 - v / 2;
-					if (b>255) {
-						b=255;
-					}
-				}
+			int v = int(600.0f + 30.0f * mValues[p]);
+			if (v<0) {
+				v = 0;
+			} else if (v>=COL_LIST_SIZE_OUT) {
+				v = COL_LIST_SIZE_OUT - 1;
 			}
+			int r = spectrumRlistOut[v];
+			int g = spectrumGlistOut[v];
+			int b = spectrumBlistOut[v];
 
 			image->setPixelAt(i,h-1,juce::Colour((juce::uint8)r,(juce::uint8)g,(juce::uint8)b));
 			x += d;
