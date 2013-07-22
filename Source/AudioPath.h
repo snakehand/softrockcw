@@ -43,6 +43,7 @@ public:
 	static void tuneReciever(int num, float freq);
 	static void setCWfreq(float f) {mCWfreq=f;}
 	static void setChannelSwap(bool swap);
+	static int insertCW(char ch);
 
 private:
 	HardRock *mRadio;

@@ -49,6 +49,7 @@ public:
 
     void paint (Graphics& g);
     void resized();
+    bool keyPressed (const KeyPress& key);
 
 
 

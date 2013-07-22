@@ -317,6 +317,15 @@ void CoreTimer::setChannelSwap(bool swap)
 	gSwapChannels = swap;
 }
 
+int CoreTimer::insertCW(char ch)
+{
+	char s[2] = "*";
+	s[0] =  ch;
+	int r = gCW_keyer->queueText(s);
+	return r;
+}
+
+
 void CoreTimer::tuneReciever(int num, float freq)
 {
 	if (num==0) {

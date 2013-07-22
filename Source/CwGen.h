@@ -11,6 +11,8 @@
 #define CW_GEN_H
 
 #include <string>
+#include <deque>
+#include "../JuceLibraryCode/JuceHeader.h"
 
 class CwGen {
 public:
@@ -25,7 +27,7 @@ public:
 
 	void setPaddleState(int paddle);
 	void setKeyState(bool key);
-	void queueText(std::string txt);
+	int queueText(std::string txt);
 
 private:
 	enum KeyState {
@@ -37,13 +39,22 @@ private:
 
 	enum KeyMode {
 		eStraight,
-		ePaddle
+		ePaddle,
+		eSequence
 	};
 
 	enum PaddleState {
 		eDit,
 		eDah,
 		ePause
+	};
+
+	enum Segment {
+		eNone,
+		eShortOn,
+		eLongOn,
+		eShortOff,
+		eLongOff
 	};
 
 	void calcTable();
@@ -65,26 +76,9 @@ private:
 	int mPaddleDebounceA;
 	int mPaddleDebounceB;
 	int mLastPaddle;
+
+	std::deque<Segment> mSegmentDeck;
+	CriticalSection mMutex;
 };
-
-#if 0
-class CwModulator : public Tickable {
-public:
-	CwModulator(CwGen *generator);
-	~CwModulator();
-
-	void setFreq(double f);
-
-	void Tick();
-
-	Pipe* getPipe() {return &mPipe;}
-private:
-	Pipe  mPipe;
-	CwGen* mGen;
-	double mFreq;
-	double mPos;
-	float *mData;
-};
-#endif
 
 #endif

@@ -21,6 +21,7 @@
 #include "RadioPanel.h"
 #include "RxSettings.h"
 #include "TxSettings.h"
+#include "AudioPath.h"
 //[/Headers]
 
 #include "MainTabs.h"
@@ -81,6 +82,16 @@ void MainTabs::resized()
     //[/UserResized]
 }
 
+bool MainTabs::keyPressed (const KeyPress& key)
+{
+    //[UserCode_keyPressed] -- Add your code here...
+	char ch = (char)key.getKeyCode();
+	int n = CoreTimer::insertCW(ch);
+	// return n>0;  // Return true if your handler uses this key event, or false to allow it to be passed-on.
+	return Component::keyPressed(key);
+    //[/UserCode_keyPressed]
+}
+
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
@@ -105,6 +116,9 @@ BEGIN_JUCER_METADATA
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
                  fixedSize="0" initialWidth="800" initialHeight="640">
+  <METHODS>
+    <METHOD name="keyPressed (const KeyPress&amp; key)"/>
+  </METHODS>
   <BACKGROUND backgroundColour="ffffffff"/>
   <TABBEDCOMPONENT name="new tabbed component" id="7450ded85c1255cc" memberName="tabbedComponent"
                    virtualName="" explicitFocusOrder="0" pos="0 0 100% 100%" orientation="top"
