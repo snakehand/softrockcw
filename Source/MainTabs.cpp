@@ -85,9 +85,11 @@ void MainTabs::resized()
 bool MainTabs::keyPressed (const KeyPress& key)
 {
     //[UserCode_keyPressed] -- Add your code here...
-	char ch = (char)key.getKeyCode();
-	int n = CoreTimer::insertCW(ch);
-	// return n>0;  // Return true if your handler uses this key event, or false to allow it to be passed-on.
+	char ch = (char)key.getTextCharacter();
+	int n = CoreTimer::insertCW((char)toupper(ch));
+    if (n) {
+        return true; // Return true if your handler uses this key event, or false to allow it to be passed-on.
+    }
 	return Component::keyPressed(key);
     //[/UserCode_keyPressed]
 }
